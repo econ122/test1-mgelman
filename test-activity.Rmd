@@ -1,0 +1,97 @@
+---
+title: "Test activity: Loan default EDA"
+author: "Math 285 - St Clair"
+output: github_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(collapse=TRUE, prompt=TRUE,comment=NULL,  message=F, include=TRUE)
+library(knitr)
+```
+
+## First steps
+Make sure you completed the steps in this test assignment's GitHub README file. Keep the output type for this .Rmd a `github_document`.   
+
+## To Do: Complete before Friday's class (1/5/18)
+Use full sentences to answer the questions below. Provide your answer and, if needed, an R chunk used to answer the question. You should be able to complete questions 1-4 with a little review of intro stats R commands. Give questions 5 and 6 a try even if you can't fully answer them. 
+
+## Data description:
+The data for today's review example is a "classic" German credit data set. Each entry in the data set represents a loan given by the bank, along personal characteristics of the person the loan was given to, the type of loan and whether or not they paid it off or defaulted.  At the time, the deutsch mark was the unit of currency so an "DM" in the dataset refers to that unit of measurement. One of the main questions about this dataset is to understand factors associated with a loan defaulting (or not). For this analysis the variable `Good.Loan` indicates whether a loan was paid off (`GoodLoan`) or whether it defaulted (`BadLoan`).
+
+```{r}
+loans <- read.csv("http://math.carleton.edu/kstclair/data/day1CreditData.csv")
+str(loans)
+```
+
+
+## 1. Data basics
+How many loan cases are in the data? How many variables?
+
+*answer:* answer here
+
+```{r}
+# R chunk for questions above (if needed)
+```
+
+We will not use all the variables in this handout. Here is a brief description of the variables used in this handout:
+
+Variable | description
+------------------- | -------------------------------------------------
+`r names(loans)[2]` | loan length in months
+`r names(loans)[5]` |  amount of loan (in DM)
+`r names(loans)[21]` |  did the loan default or not
+
+## 2. Default rate
+What percentage of loans in this dataset defaulted? 
+
+*answer:* answer here
+
+```{r}
+# R chunk for questions above (if needed)
+```
+
+
+## 3. Default rate by duration
+What is the average loan duration in this data? What percent of defaults occur for loans of 2 years or less? More than 2 years?
+
+*answer:* answer here
+
+```{r}
+# R chunk for questions above (if needed)
+```
+
+## 4. Default rate and credit amount
+What is the median credit amount for loans that defaulted? for loans that didn't default? Create a graph that that shows the credit amount distribution for each type of loan (good vs. bad), then compare these distributions.
+
+*answer:* answer here
+
+```{r}
+# R chunk for questions above (if needed)
+```
+
+## 5. A default prediction model
+Suppose that Barb the data scientist generates the following model criteria to predict when a loan will default. A loan will default if either criteria below is met:
+
+- Duration is longer than 2 years and credit amount is greater than 10,000 DM.
+- Duration is 2 years or less and credit amount is less than 2200 DM.
+
+Use this model to predict defaults for the loan data. (Hint: You will likely need to use the "and" operator `&`.) Then use the actual and predicted default variables to find the following rates:
+
+- What is the model's *accuracy* rate, i.e. the percentage of all loans that are correctly classified as good or bad? 
+- What is the model's *false positive rate*, i.e. the percentage of good loans that are predicted to default (a "positive" result)? (This is 1 minus the *specificity* of the model)
+- What is the model's *false negative rate*, i.e. the percentage of bad loans that are predicted to not default (a "negative" result)? (This is 1 minus the *sensitivity* of the model)
+
+*answer:* answer here
+
+```{r}
+# R chunk for questions above (if needed)
+```
+
+## 6. Try your default prediction model
+Try changing one or two parts of Barb's simple default criteria and see if you can get a better rates than Barb (higher accuracy and/or lower false rates). 
+
+*answer:* answer here
+
+```{r}
+# R chunk for questions above (if needed)
+```
