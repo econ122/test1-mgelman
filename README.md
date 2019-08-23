@@ -1,3 +1,5 @@
+#test change
+
 # test-assignment
 The first day of class we will talk about creating version controlled projects in Rstudio. This first test assignment will not be graded, but it will give you a chance to practice the process of submitting  assignments to GitHub. 
 
